@@ -301,16 +301,55 @@ function initAttractMode() {
 }
 
 /* ============================================================
-   SMOOTH SCROLL for START GAME button
+   GAME SELECT MODAL
+   ============================================================ */
+function initGameSelectModal() {
+  const modal    = document.getElementById('game-select-modal');
+  const closeBtn = document.getElementById('gs-close-btn');
+  if (!modal) return;
+
+  function openModal() {
+    selectBeep();
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    beep(300, .08, 'square');
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+  // Close on backdrop click
+  modal.addEventListener('click', e => {
+    if (e.target === modal) closeModal();
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
+  });
+
+  // Expose open function globally
+  window._openGameSelectModal = openModal;
+}
+
+window.gsLaunch = function(url) {
+  playBeep();
+  setTimeout(() => window.open(url, '_blank'), 200);
+};
+
+/* ============================================================
+   SMOOTH SCROLL / START GAME button → open modal
    ============================================================ */
 function initStartBtn() {
   const btn = document.getElementById('start-btn');
   if (!btn) return;
   btn.addEventListener('click', e => {
     e.preventDefault();
-    selectBeep();
-    const target = document.getElementById('game-grid');
-    if (target) target.scrollIntoView({ behavior: 'smooth' });
+    if (window._openGameSelectModal) window._openGameSelectModal();
   });
 }
 
@@ -335,6 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initKeyboard();
   initCardEffects();
   initStartBtn();
+  initGameSelectModal();
   initAttractMode();
   updateHiScore();
 

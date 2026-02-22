@@ -918,6 +918,143 @@ body {
   }
 }
 
+/* ============================================================
+   GAME SELECT MODAL
+   ============================================================ */
+.gs-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.88);
+  z-index: 8000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  backdrop-filter: blur(4px);
+  animation: fadeIn .25s ease;
+}
+.gs-overlay.hidden { display: none; }
+
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.gs-box {
+  position: relative;
+  background: #0a0a1a;
+  border: 2px solid var(--cyan);
+  box-shadow: 0 0 40px rgba(0,255,255,.35), inset 0 0 60px rgba(0,0,0,.6);
+  padding: 32px 28px 28px;
+  max-width: 560px;
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.gs-scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    rgba(0,0,0,.18) 3px,
+    rgba(0,0,0,.18) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.gs-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(.5rem, 2.5vw, .75rem);
+  color: var(--yellow);
+  letter-spacing: 2px;
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 2;
+}
+
+.gs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.gs-card {
+  background: #0d0d2a;
+  border: 2px solid rgba(0,255,255,.25);
+  border-radius: 4px;
+  padding: 18px 12px 14px;
+  cursor: pointer;
+  transition: border-color .2s, transform .15s, box-shadow .2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.gs-card:hover {
+  border-color: var(--yellow);
+  box-shadow: 0 0 22px rgba(255,255,0,.5);
+  transform: translateY(-3px);
+}
+
+.gs-icon {
+  font-size: .6rem;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.gs-name {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(.4rem, 2vw, .6rem);
+  letter-spacing: 1px;
+}
+
+.gs-genre {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(.28rem, 1.4vw, .42rem);
+  opacity: .75;
+}
+
+.gs-play {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(.35rem, 1.6vw, .5rem);
+  color: var(--green);
+  margin-top: 6px;
+  letter-spacing: 1px;
+}
+
+.gs-close {
+  display: inline-block;
+  margin-top: 24px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(.3rem, 1.4vw, .45rem);
+  background: transparent;
+  border: 1px solid rgba(255,0,255,.45);
+  color: var(--pink);
+  padding: 8px 20px;
+  cursor: pointer;
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 2;
+  transition: background .2s, color .2s;
+}
+.gs-close:hover {
+  background: var(--pink);
+  color: #000;
+}
+
+@media (max-width: 480px) {
+  .gs-grid { grid-template-columns: 1fr; }
+  .gs-box  { padding: 24px 16px 20px; }
+}
+
 @media (max-width: 480px) {
   .games-grid {
     grid-template-columns: 1fr;

@@ -215,6 +215,40 @@
 
   </div><!-- /#main-wrapper -->
 
+  <!-- ===================== GAME SELECT MODAL ===================== -->
+  <div id="game-select-modal" class="gs-overlay hidden">
+    <div class="gs-box">
+      <div class="gs-scanlines"></div>
+      <div class="gs-title blink">▶ SELECT YOUR GAME ◀</div>
+      <div class="gs-grid">
+        <!-- Tic-Tac-Toe -->
+        <div class="gs-card" onclick="gsLaunch('https://varshil15.github.io/Tic-Tac-Toe/')">
+          <div class="gs-icon">
+            <div class="tic-grid">
+              <span class="tx">X</span><span class="tline"></span><span class="to">O</span>
+              <span class="thline"></span><span class="thline"></span><span class="thline"></span>
+              <span class="to">O</span><span class="tline"></span><span class="tx">X</span>
+            </div>
+          </div>
+          <div class="gs-name neon-yellow">TIC-TAC-TOE</div>
+          <div class="gs-genre neon-cyan">CLASSIC STRATEGY</div>
+          <div class="gs-play">▶ PLAY</div>
+        </div>
+        <!-- Snake -->
+        <div class="gs-card" onclick="gsLaunch('https://varshil15.github.io/Snake-Game/')">
+          <div class="gs-icon">
+            <div class="snake-row"><span class="sh">▶</span><span class="sb">■</span><span class="sb">■</span><span class="sb">■</span></div>
+            <div class="snake-food">✦</div>
+          </div>
+          <div class="gs-name neon-green">SNAKE GAME</div>
+          <div class="gs-genre neon-cyan">ARCADE SURVIVAL</div>
+          <div class="gs-play">▶ PLAY</div>
+        </div>
+      </div>
+      <button class="gs-close" id="gs-close-btn">✕ CLOSE</button>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
