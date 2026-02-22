@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ARCADE</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===================== LOADING SCREEN ===================== -->
+  <div id="loading-screen">
+    <div class="loading-inner">
+      <div class="loading-logo">ARCADE</div>
+      <div class="loading-coin blink">► INSERT COIN ◄</div>
+      <div class="loading-bar-wrap">
+        <div class="loading-bar" id="load-bar"></div>
+      </div>
+      <div class="loading-hint">PRESS ANY KEY OR CLICK TO CONTINUE</div>
+    </div>
+    <div class="scanlines"></div>
+    <div class="crt-vignette"></div>
+  </div>
+
+  <!-- ===================== MAIN WRAPPER ===================== -->
+  <div id="main-wrapper" class="hidden">
+
+    <!-- ---- TOP NAV BAR ---- -->
+    <nav class="top-bar">
+      <span class="top-bar-brand">🕹 ARCADE</span>
+    </nav>
+
+    <!-- ===================== HERO / CRT SCREEN ===================== -->
+    <section class="hero">
+      <div class="crt-frame">
+        <!-- CRT effects -->
+        <div class="scanlines"></div>
+        <div class="crt-vignette"></div>
+        <div class="crt-hline"></div>
+        <!-- Hero content -->
+        <div class="crt-body">
+          <div class="hero-eyebrow blink">✦ PLAYER 1 READY ✦</div>
+          <h1 class="hero-title glitch" data-text="ARCADE">ARCADE</h1>
+          <p class="hero-subtitle">PRESS START TO PLAY</p>
+          <div class="hero-insert blink">► INSERT COIN ◄</div>
+          <div class="hero-credits">CREDITS: <span class="neon-green">∞</span></div>
+          <a href="#game-grid" class="start-btn-hero" id="start-btn">
+            ▶ &nbsp;START GAME
+          </a>
+          <div class="hero-hint">USE ↑ ↓ ARROW KEYS + ENTER TO NAVIGATE</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTENT: GRID + SIDEBAR ===================== -->
+    <div class="content-wrapper" id="game-grid">
+
+      <!-- ====== GAME SELECTION GRID ====== -->
+      <main class="game-section">
+        <h2 class="section-title">
+          <span class="s-arrow">▶</span> SELECT YOUR GAME <span class="s-arrow">◀</span>
+        </h2>
+
+        <div class="games-grid">
+
+          <!-- CARD 1 — TIC TAC TOE -->
+          <div class="game-card" tabindex="0" data-index="0">
+            <div class="card-screen">
+              <div class="card-scanlines"></div>
+              <div class="card-number">01</div>
+              <div class="pixel-icon">
+                <div class="tic-grid">
+                  <span class="tx">X</span><span class="tline"></span><span class="to">O</span>
+                  <span class="thline"></span><span class="thline"></span><span class="thline"></span>
+                  <span class="to">O</span><span class="tline"></span><span class="tx">X</span>
+                </div>
+              </div>
+            </div>
+            <div class="card-info">
+              <h3 class="card-title neon-yellow">TIC-TAC-TOE</h3>
+              <p class="card-genre neon-cyan">CLASSIC STRATEGY</p>
+              <div class="card-meta">
+                <div class="star-row">
+                  <span class="star on">★</span><span class="star on">★</span>
+                  <span class="star on">★</span><span class="star on">★</span>
+                  <span class="star">★</span>
+                </div>
+                <span class="badge easy">EASY</span>
+              </div>
+              <p class="card-desc">Outsmart your opponent — get three in a row to claim victory!</p>
+              <a href="https://varshil15.github.io/Tic-Tac-Toe/" target="_blank"
+                 class="play-btn" data-game="Tic-Tac-Toe">▶ PLAY NOW</a>
+            </div>
+          </div>
+
+          <!-- CARD 2 — SNAKE -->
+          <div class="game-card" tabindex="0" data-index="1">
+            <div class="card-screen">
+              <div class="card-scanlines"></div>
+              <div class="card-number">02</div>
+              <div class="pixel-icon snake-pixel">
+                <div class="snake-row">
+                  <span class="sh">▶</span>
+                  <span class="sb">■</span><span class="sb">■</span><span class="sb">■</span>
+                </div>
+                <div class="snake-food">✦</div>
+              </div>
+            </div>
+            <div class="card-info">
+              <h3 class="card-title neon-green">SNAKE GAME</h3>
+              <p class="card-genre neon-cyan">ARCADE SURVIVAL</p>
+              <div class="card-meta">
+                <div class="star-row">
+                  <span class="star on">★</span><span class="star on">★</span>
+                  <span class="star on">★</span><span class="star on">★</span>
+                  <span class="star on">★</span>
+                </div>
+                <span class="badge medium">MEDIUM</span>
+              </div>
+              <p class="card-desc">Eat, grow, survive! Dodge your own tail and beat your high score.</p>
+              <a href="https://varshil15.github.io/Snake-Game/" target="_blank"
+                 class="play-btn" data-game="Snake Game">▶ PLAY NOW</a>
+            </div>
+          </div>
+
+          <!-- COMING SOON CARD -->
+          <div class="game-card coming-soon" tabindex="0">
+            <div class="card-screen">
+              <div class="card-scanlines"></div>
+              <div class="card-number">03</div>
+              <div class="pixel-icon cs-icon-wrap">
+                <div class="cs-qmark blink">?</div>
+              </div>
+            </div>
+            <div class="card-info">
+              <h3 class="card-title neon-pink">COMING SOON</h3>
+              <p class="card-genre neon-cyan">MYSTERY GAME</p>
+              <div class="card-meta">
+                <div class="star-row">
+                  <span class="star">★</span><span class="star">★</span>
+                  <span class="star">★</span><span class="star">★</span>
+                  <span class="star">★</span>
+                </div>
+                <span class="badge locked">LOCKED</span>
+              </div>
+              <p class="card-desc">Something epic is being crafted. Stay tuned for the next drop!</p>
+              <span class="play-btn disabled">⌛ LOCKED</span>
+            </div>
+          </div>
+
+          <!-- COMING SOON CARD 2 -->
+          <div class="game-card coming-soon" tabindex="0">
+            <div class="card-screen">
+              <div class="card-scanlines"></div>
+              <div class="card-number">04</div>
+              <div class="pixel-icon cs-icon-wrap">
+                <div class="cs-qmark blink">?</div>
+              </div>
+            </div>
+            <div class="card-info">
+              <h3 class="card-title neon-pink">COMING SOON</h3>
+              <p class="card-genre neon-cyan">MYSTERY GAME</p>
+              <div class="card-meta">
+                <div class="star-row">
+                  <span class="star">★</span><span class="star">★</span>
+                  <span class="star">★</span><span class="star">★</span>
+                  <span class="star">★</span>
+                </div>
+                <span class="badge locked">LOCKED</span>
+              </div>
+              <p class="card-desc">Another adventure loading... your pixel destiny awaits!</p>
+              <span class="play-btn disabled">⌛ LOCKED</span>
+            </div>
+          </div>
+
+        </div><!-- /games-grid -->
+      </main>
+
+      <!-- ====== SIDE CONTROL PANEL ====== -->
+      <aside class="control-panel">
+
+        <!-- D-Pad + Buttons -->
+        <div class="panel-block">
+          <div class="panel-title">🎮 CONTROLS</div>
+          <div class="controller-wrap">
+            <!-- D-Pad -->
+            <div class="dpad">
+              <div class="dp-row"><div class="dp-btn" id="dp-up">▲</div></div>
+              <div class="dp-row">
+                <div class="dp-btn" id="dp-left">◀</div>
+                <div class="dp-center">✦</div>
+                <div class="dp-btn" id="dp-right">▶</div>
+              </div>
+              <div class="dp-row"><div class="dp-btn" id="dp-down">▼</div></div>
+            </div>
+            <!-- Action Buttons -->
+            <div class="action-btns">
+              <div class="ab-row">
+                <button class="ab-btn btn-y" onclick="flashBtn(this)">Y</button>
+                <button class="ab-btn btn-x" onclick="flashBtn(this)">X</button>
+              </div>
+              <div class="ab-row">
+                <button class="ab-btn btn-a" onclick="flashBtn(this)">A</button>
+                <button class="ab-btn btn-b" onclick="flashBtn(this)">B</button>
+              </div>
+            </div>
+          </div>
+          <p class="ctrl-hint">↑↓ NAVIGATE &nbsp;|&nbsp; ENTER: SELECT</p>
+        </div>
+
+      </aside>
+    </div><!-- /content-wrapper -->
+
+  </div><!-- /#main-wrapper -->
+
+  <script src="script.js"></script>
+</body>
+</html>
